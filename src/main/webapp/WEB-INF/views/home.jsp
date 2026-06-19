@@ -14,6 +14,10 @@
 	</section>
 	
 	<section class="max-h-[800px] relative overflow-hidden">
+	   <div class="flex justify-between align-center p-4">
+		   	<p class="text-[2rem] font-medium uppercase tracking-wider">shop by category</p>
+		   	<p class="text-[1rem] font-medium uppercase">view all</p>
+	   </div>
 		<div class="swiper">
 		  <div class="swiper-wrapper">
 		    <div class="swiper-slide">
@@ -24,6 +28,35 @@
 		    </div>
 		    <div class="swiper-slide">
 		    	<img src="${pageContext.request.contextPath}/images/sw1.png" alt="">
+		    </div>
+		  </div>
+		
+		
+		  <div class="swiper-button-prev"></div>
+		  <div class="swiper-button-next"></div>
+		
+		</div>
+	</section>
+	
+	<section class="max-h-[800px] relative overflow-hidden">
+		<div class="flex justify-between align-center p-4">
+		   	<p class="text-[2rem] font-medium uppercase tracking-wider">trending show</p>
+		   	<p class="text-[1rem] font-medium uppercase">view all</p>
+	   </div>
+	   
+	   <div class="swiper">
+		  <div class="swiper-wrapper">
+		    <div class="swiper-slide">
+		    	<img src="${pageContext.request.contextPath}/images/screen.png" alt="" width="594px">
+		    </div>
+		    <div class="swiper-slide">
+		    	<img src="${pageContext.request.contextPath}/images/screen1.png" alt="" width="594px">
+		    </div>
+		    <div class="swiper-slide">
+		    	<img src="${pageContext.request.contextPath}/images/screen2.png" alt="" width="594px">
+		    </div>
+		    <div class="swiper-slide">
+		    	<img src="${pageContext.request.contextPath}/images/screen3.png" alt="" width="594px">
 		    </div>
 		  </div>
 		
