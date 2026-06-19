@@ -1,8 +1,6 @@
-package ecomerce;
+package com.erdenee.ecomerce;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class IndexServlet
+ * Servlet implementation class CollectionServlet
  */
-@WebServlet("/IndexServlet")
-public class IndexServlet extends HttpServlet {
+@WebServlet("/collection")
+public class CollectionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public IndexServlet() {
+    public CollectionServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,9 +27,7 @@ public class IndexServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		PrintWriter pw=response.getWriter();
-		pw.println("Hello Erdnee");
+		request.getRequestDispatcher("/WEB-INF/views/collection.jsp").forward(request, response);
 	}
 
 	/**
