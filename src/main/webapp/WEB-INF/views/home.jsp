@@ -12,7 +12,44 @@
         	</div>
     	</div>
 	</section>
+	
+	<section class="max-h-[800px] relative overflow-hidden">
+		<div class="swiper">
+		  <div class="swiper-wrapper">
+		    <div class="swiper-slide">
+		    	<img src="${pageContext.request.contextPath}/images/sw1.png" alt="">
+		    </div>
+		    <div class="swiper-slide">
+		    	<img src="${pageContext.request.contextPath}/images/sw2.png" alt="">
+		    </div>
+		    <div class="swiper-slide">
+		    	<img src="${pageContext.request.contextPath}/images/sw1.png" alt="">
+		    </div>
+		  </div>
+		
+		
+		  <div class="swiper-button-prev"></div>
+		  <div class="swiper-button-next"></div>
+		
+		</div>
+	</section>
     
    
- 
+	 <script>
+		  document.addEventListener("DOMContentLoaded", function() {
+		    const swiper = new Swiper('.swiper', {
+		      slidesPerView: 2, 
+		      spaceBetween: 10, 
+		      navigation: {
+		        nextEl: '.swiper-button-next',
+		        prevEl: '.swiper-button-prev',
+		      },
+		      loop: true, 
+		      autoplay: {
+		         delay: 3000, 
+		      },
+		    });
+		  });
+	</script>
+	
 </ui:layout>
