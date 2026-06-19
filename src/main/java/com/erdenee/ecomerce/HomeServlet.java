@@ -33,14 +33,12 @@ public class HomeServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		try {
 			Connection connection = DatabaseConnection.getConnection();
-			System.out.println("Connect db");
 			request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
 		} catch (SQLException e) {
 			System.out.print(e.toString());
 			e.printStackTrace();
 		}
-		
-		
+	
 	}
 
 	/**
