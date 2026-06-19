@@ -6,9 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
+import com.erdenee.ecomerce.DatabaseConnection;
 
 /**
  * Servlet implementation class HomeServlet
@@ -30,7 +31,16 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
+		try {
+			Connection connection = DatabaseConnection.getConnection();
+			System.out.println("Connect db");
+			request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
+		} catch (SQLException e) {
+			System.out.print(e.toString());
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 	/**
