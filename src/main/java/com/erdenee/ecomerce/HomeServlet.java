@@ -38,7 +38,7 @@ public class HomeServlet extends HttpServlet {
 			System.out.print(e.toString());
 			e.printStackTrace();
 		}
-	
+//		request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
 	}
 
 	/**
