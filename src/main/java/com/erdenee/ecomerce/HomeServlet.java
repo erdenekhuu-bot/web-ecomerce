@@ -6,6 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import com.erdenee.ecomerce.DatabaseConnection;
 
 /**
  * Servlet implementation class HomeServlet
@@ -25,10 +29,18 @@ public class HomeServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
-	}
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        try (Connection connection = DatabaseConnection.getConnection()) {
+        	
+            System.out.println("DB connection established successfully: " + connection);
+            
+        } catch (SQLException e) {
+            System.err.println("Database connection failed!");
+            e.printStackTrace();
+        }
+        request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
+    }
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
