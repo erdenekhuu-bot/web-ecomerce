@@ -6,6 +6,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
+
+import com.erdenee.ecomerce.config.DatabaseConnection;
+import com.erdenee.ecomerce.dao.*;
+import com.erdenee.ecomerce.service.*;
 
 /**
  * Servlet implementation class HomeServlet
@@ -25,9 +33,17 @@ public class HomeServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		CategoryService service=new CategoryService();
+		List<Category> list = service.findMany();
+		for(Category cat : list) {
+		    System.out.println(cat.getName());   
+		}
+		request.setAttribute("categories", list);
 		request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
+		
 	}
 
 	/**
