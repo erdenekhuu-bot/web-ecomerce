@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
-import com.erdenee.ecomerce.DatabaseConnection;
+import java.util.List;
+
+import com.erdenee.ecomerce.config.DatabaseConnection;
+import com.erdenee.ecomerce.dao.*;
+import com.erdenee.ecomerce.service.*;
 
 /**
  * Servlet implementation class HomeServlet
@@ -31,14 +35,14 @@ public class HomeServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		try {
-			Connection connection = DatabaseConnection.getConnection();
-			request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
-		} catch (SQLException e) {
-			System.out.print(e.toString());
-			e.printStackTrace();
+		CategoryService service=new CategoryService();
+		List<Category> list = service.findMany();
+		for(Category cat : list) {
+		    System.out.println(cat.getName());   
 		}
-//		request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
+		request.setAttribute("categories", list);
+		request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
+		
 	}
 
 	/**

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource 
+        name="jdbc/ecomerceDB"
+        auth="Container"
+        type="javax.sql.DataSource"
+        maxTotal="50"
+        maxIdle="10"
+        minIdle="5"
+        maxWaitMillis="10000"
+        username="admin"
+        password="admin"
+        driverClassName="org.postgresql.Driver"
+        url="jdbc:postgresql://localhost:5432/ecomerce"
+        testOnBorrow="true"
+        validationQuery="SELECT 1"/>
+</Context>
