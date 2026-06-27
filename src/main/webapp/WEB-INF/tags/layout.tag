@@ -17,7 +17,6 @@
 		    	<a href="${pageContext.request.contextPath}/collection" class="uppercase text-2xl font-medium">Collections</a>
 		    	<a href="${pageContext.request.contextPath}/designer" class="uppercase text-2xl font-medium">Designers</a>
 		    	<a href="${pageContext.request.contextPath}/journal" class="uppercase text-2xl font-medium">Journal</a>
-		    	<a href="${pageContext.request.contextPath}/about" class="uppercase text-2xl font-medium">About</a>
 		    </nav>
 		    <section class="flex gap-4">
 		    	<input placeholder="Searchs"/>
