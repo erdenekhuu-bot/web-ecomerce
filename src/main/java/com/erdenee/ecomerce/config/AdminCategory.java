@@ -1,4 +1,4 @@
-package com.erdenee.ecomerce;
+package com.erdenee.ecomerce.config;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AboutServlet
+ * Servlet implementation class AdminCategory
  */
-@WebServlet("/about")
-public class AboutServlet extends HttpServlet {
+@WebServlet("/category")
+public class AdminCategory extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AboutServlet() {
+    public AdminCategory() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +27,7 @@ public class AboutServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("/WEB-INF/views/about.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/admin-category.jsp").forward(request, response);
 	}
 
 	/**
