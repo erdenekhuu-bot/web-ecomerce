@@ -13,7 +13,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/apache-tomcat-9.0.118/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="C:/apache-tomcat-9.0.118/lib/postgresql-42.7.10.jar"/>
+	<classpathentry kind="lib" path="C:/apache-tomcat-9.0.118/lib/gson-2.10.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

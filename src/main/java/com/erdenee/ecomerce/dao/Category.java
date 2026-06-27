@@ -6,7 +6,7 @@ public class Category {
 	private int id;
 	private String name;
 	private String description;
-	private LocalDateTime created_at;
+	private String created_at;
 	
 	public int getId() {
 		return id;
@@ -31,11 +31,11 @@ public class Category {
 		this.name = name;
 	}
 	
-	public LocalDateTime getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
 	
-	public void setCreated_at(LocalDateTime created_at) {
+	public void setCreated_at(String created_at) {
 		this.created_at = created_at;
 	}
 	
