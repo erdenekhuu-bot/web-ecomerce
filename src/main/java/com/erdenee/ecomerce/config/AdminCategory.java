@@ -93,7 +93,6 @@ public class AdminCategory extends HttpServlet {
                 return;
             }
             response.setStatus(HttpServletResponse.SC_OK);
-            
         } catch (Exception e) {
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.toString());
         }
