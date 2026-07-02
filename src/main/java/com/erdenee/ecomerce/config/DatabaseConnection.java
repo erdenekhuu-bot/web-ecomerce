@@ -16,9 +16,7 @@ public class DatabaseConnection {
             Context initContext = new InitialContext();
             Context envContext = (Context) initContext.lookup("java:/comp/env");
             dataSource = (DataSource) envContext.lookup("jdbc/ecomerceDB");
-            System.out.println("DataSource initialized successfully");
         } catch (NamingException e) {
-            System.err.println("Failed to initialize DataSource!");
             e.printStackTrace();
         }
     }

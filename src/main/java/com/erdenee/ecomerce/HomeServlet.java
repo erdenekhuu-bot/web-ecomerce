@@ -36,12 +36,6 @@ public class HomeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		CategoryService service=new CategoryService();
-		List<Category> list = service.findMany();
-		for(Category cat : list) {
-		    System.out.println(cat.getName());   
-		}
-		request.setAttribute("categories", list);
 		request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
 		
 	}

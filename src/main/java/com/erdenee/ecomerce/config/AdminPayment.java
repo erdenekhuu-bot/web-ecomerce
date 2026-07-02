@@ -1,8 +1,6 @@
-package com.erdenee.ecomerce;
+package com.erdenee.ecomerce.config;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CollectionServlet
+ * Servlet implementation class AdminPayment
  */
-@WebServlet("/collection")
-public class CollectionServlet extends HttpServlet {
+@WebServlet("/admin/payment")
+public class AdminPayment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CollectionServlet() {
+    public AdminPayment() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,15 +27,8 @@ public class CollectionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		 List<String> collections = List.of(
-			        "Men",
-			        "Women",
-			        "Shoes",
-			        "Accessories"
-			    );
-		request.setAttribute("message", "Hello World");
-		request.setAttribute("collections", collections);
-		request.getRequestDispatcher("/WEB-INF/views/collection.jsp").forward(request, response);
+		request.setAttribute("payment", true);
+		request.getRequestDispatcher("/WEB-INF/views/admin/Payment.jsp").forward(request, response);
 	}
 
 	/**
