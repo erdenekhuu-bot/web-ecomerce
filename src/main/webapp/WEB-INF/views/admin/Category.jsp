@@ -126,7 +126,7 @@
 	            await fetch(contextPath + "/admin?id=" + encodeURIComponent(id),{method: "DELETE"}).then(()=>window.location.reload())
 	        }
 	    }
-	
+
 	    window.onclick = function(event) {
 	        const modal = document.getElementById('createCategoryModal');
 	        if (event.target === modal) {

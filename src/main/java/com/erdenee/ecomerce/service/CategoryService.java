@@ -7,7 +7,7 @@ import java.sql.*;
 
 public class CategoryService {
 	
-	//Useful private method
+	//Useful private method selects
 	 private Category mapCategory(ResultSet rs) throws SQLException {
 	        Category category = new Category();
 	        category.setId(rs.getInt("id"));
@@ -17,7 +17,7 @@ public class CategoryService {
 	        return category;
 	    }
 	
-	public List<Category> findMany(int page, int size) {
+	public List<Category> findMany(int page, int size){
         List<Category> categories = new ArrayList<>();
         String sql = "SELECT * FROM public.category ORDER BY id ASC LIMIT ? OFFSET ?";
         int offset = (page - 1) * size;
@@ -35,7 +35,7 @@ public class CategoryService {
         return categories;
     }
 	
-	public Category findOne(int id){
+	public Category findOne(int id) {
 		String sql = """
                 SELECT id, name, description, created_at
                 FROM public.category
