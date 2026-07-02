@@ -23,7 +23,6 @@
 				    Create category
 				</button>
 			</div>
-	
 	        <div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
 		    <div class="overflow-x-auto">
 		        <table class="w-full text-left border-collapse">
@@ -127,7 +126,7 @@
 	            await fetch(contextPath + "/admin?id=" + encodeURIComponent(id),{method: "DELETE"}).then(()=>window.location.reload())
 	        }
 	    }
-	
+
 	    window.onclick = function(event) {
 	        const modal = document.getElementById('createCategoryModal');
 	        if (event.target === modal) {

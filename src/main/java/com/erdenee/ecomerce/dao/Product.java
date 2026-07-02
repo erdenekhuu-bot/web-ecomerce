@@ -13,7 +13,7 @@ public class Product {
 	private boolean selled;
 	private int category_id;
 	private String image;
-	private LocalDateTime created_at;
+	private String created_at;
 	
 	public int getId() {
 		return id;
@@ -52,7 +52,7 @@ public class Product {
 	public String getImage() {
 		return image;
 	}
-	public LocalDateTime getCreated_at() {
+	public String getCreated_at() {
 		return created_at;
 	}
 	
