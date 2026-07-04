@@ -70,6 +70,7 @@
 	        </div>
 	    </div>
 	    
+	    <!--Modal form (category)-->
 	    <div id="createCategoryModal" class="fixed inset-0 z-50 hidden bg-gray-900/50 backdrop-blur-sm flex items-center justify-center p-4 transition-all">
 	    <div class="bg-white rounded-xl shadow-xl border border-gray-100 max-w-md w-full overflow-hidden transform transition-all">
 	        <div class="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-gray-50">
