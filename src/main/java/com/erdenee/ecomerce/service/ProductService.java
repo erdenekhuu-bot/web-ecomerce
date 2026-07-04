@@ -32,7 +32,7 @@ public class ProductService {
 	
 	public Product create(Product record) {
 		String sql="""	
-					INSERT INTO public.product () VALUES (?) RETURNING id 
+					INSERT INTO public.product (name,description,size,color,price,attribute) VALUES (?,?,?,?,?,?) RETURNING id 
 					""";
 		try(Connection conn = DatabaseConnection.getConnection();
 		    PreparedStatement ps = conn.prepareStatement(sql)){
