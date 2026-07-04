@@ -28,7 +28,7 @@
 		<!--Modal form (product)-->	
 		<div id="ProductModalTransparent" class="fixed inset-0 z-50 hidden bg-gray-900/50 backdrop-blur-sm flex items-center justify-center p-4 transition-all">
 	    <div class="bg-white p-4 rounded-xl shadow-xl border border-gray-100 max-w-md w-full overflow-hidden transform transition-all">
-	        <form action="${pageContext.request.contextPath}/product" method="POST">
+	        <form action="${pageContext.request.contextPath}/admin/product" method="POST" enctype="multipart/form-data">
 	        	<div>
                 <label for="name" class="block text-sm font-semibold text-gray-700 mb-1">Product Name:</label>
                 <input type="text" id="name" name="name" maxlength="150" required
@@ -62,23 +62,28 @@
                 </div>
                 <div>
                     <label for="category_id" class="block text-sm font-semibold text-gray-700 mb-1">Category ID:</label>
-                    <input type="number" id="category_id" name="category_id" required
-                           class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition duration-150">
+                  
+			        <select id="category_id" name="category_id" required class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition duration-150">
+				        <option value="">-- Select category --</option>
+				        <c:forEach var="category" items="${categories}">
+				            <option value="${category.id}">${category.name}</option>
+				        </c:forEach>
+				
+				    </select>
                 </div>
             </div>
 
             <div>
-                <label for="attribute" class="block text-sm font-semibold text-gray-700 mb-1">Attribute / Brand:</label>
+                <label for="attribute" class="block text-sm font-semibold text-gray-700 mb-1">Attribute</label>
                 <input type="text" id="attribute" name="attribute" maxlength="100" required
                        class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition duration-150">
             </div>
 
             <div>
-                <label for="image" class="block text-sm font-semibold text-gray-700 mb-1">Image URL:</label>
-                <input type="text" id="image" name="image" placeholder="http://example.com/image.jpg"
+                <label for="image" class="block text-sm font-semibold text-gray-700 mb-1">Image:</label>
+                <input type="file" id="image" name="image"
                        class="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition duration-150">
             </div>
-
 
             <div class="pt-4 border-t border-gray-200 flex justify-end">
                 <button type="submit" 
