@@ -8,14 +8,19 @@
         Collection
     </h1>
     
-      <p>Servlet message: <c:out value="${message}" /></p>
-
-    <c:if test="${not empty message}">
-        <p>Request attribute is working ✅</p>
-    </c:if>
-     <c:forEach var="item" items="${collections}">
-        <div class="border p-4 mb-2">
-            ${item}
-        </div>
-    </c:forEach>
+    <section class="p-6 grid grid-cols-2 gap-4">
+    	<div class="p-8">
+    		<img src="${pageContext.request.contextPath}/images/col1.png" alt="" class="m-4">
+    		<img src="${pageContext.request.contextPath}/images/col2.png" alt="" class="m-4">
+    		<img src="${pageContext.request.contextPath}/images/col3.png" alt="" class="m-4">
+    	</div>
+    	<div class="p-8">
+    		<p class="font-bold my-2 text-3xl">The Sculptural Overcoat</p>
+    		<p>$1,250.00</p>
+    		<p class="my-3">Color</p>
+    		<p>SELECT SIZE</p>
+    	</div>
+    </section>
+    
+   
 </ui:layout>
