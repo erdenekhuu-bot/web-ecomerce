@@ -24,6 +24,57 @@
 				    Create product
 				</button>
 			</div>
+		<div class="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+		<div class="overflow-x-auto">
+		        <table class="w-full text-left border-collapse">
+			            <thead>
+			                <tr class="bg-gray-50 border-b border-gray-200">
+			                    <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500 w-24">ID</th>
+			                    <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Name</th>
+			                    <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500 w-96">Description</th>
+			                    <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500">Selled</th>
+			                    <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500 w-24">Image</th>
+			                    <th class="px-6 py-3 text-xs font-semibold uppercase tracking-wider text-gray-500 text-right w-24">Actions</th>
+			                </tr>
+			            </thead>
+		            	<tbody class="divide-y divide-gray-100">
+			                <c:forEach var="product" items="${products}">
+			                    <tr class="hover:bg-gray-50/70 transition-colors">
+			                        <td class="px-6 py-4 text-sm font-mono text-gray-500">${product.id}</td>
+			                        <td class="px-6 py-4 text-sm font-semibold text-gray-900">${product.name}</td>
+			                        <td class="px-6 py-4 text-sm font-semibold text-gray-500 w-96">${product.description}</td>
+			                        <td class="px-6 py-4 text-sm text-gray-600">${product.selled}</td>
+			                        <td>
+			                        	<img src="${pageContext.request.contextPath}${product.image}" alt="" class="w-16 h-16 object-cover rounded-md border" />
+			                        </td>
+			                        <td class="px-6 py-4 text-sm text-right whitespace-nowrap">
+			                            <div class="flex flex-x-4">
+			                            	<button type="button" onclick="handleDeleteProduct('${product.id}')"
+				                                class="inline-flex items-center justify-center p-2 rounded-lg text-gray-400 hover:text-red-600 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-red-500 transition-all group hover:cursor-pointer">
+			                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-4v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+			                                </svg>
+			                            </button>
+			                            </div>
+			                        </td>
+			                        
+			                    </tr>
+			                </c:forEach>
+		            	</tbody>
+		         </table>
+			    </div>
+			    <div class="bg-gray-50 px-6 py-4 border-t border-gray-200 flex items-center justify-between">
+	            <span class="text-sm text-gray-500">Showing pages 1 to ${totalPages}</span>
+	               <div class="flex items-center gap-1.5">
+	                 <c:forEach var="pageNumber" begin="1" end="${totalPages}">
+	                        <a href="${pageContext.request.contextPath}/admin/product?page=${pageNumber}" class="inline-flex items-center justify-center min-w-[32px] h-8 px-2 text-sm font-medium rounded-md transition-all border shadow-sm ${pageNumber == currentPage ? 'bg-slate-900 border-slate-900 text-white hover:bg-slate-800' : 'bg-white border-gray-200 text-gray-700 hover:bg-gray-50'}">
+	                           ${pageNumber}
+	                        </a>
+	                 </c:forEach>
+	               </div>
+	            </div>
+	        </div>
+			</div>
 			
 		<!--Modal form (product)-->	
 		<div id="ProductModalTransparent" class="fixed inset-0 z-50 hidden bg-gray-900/50 backdrop-blur-sm flex items-center justify-center p-4 transition-all">
@@ -109,9 +160,9 @@
 	        }
 	    }
 	    
-	    async function handleDeleteCategory(id) {
-	        if (confirm(`Are you sure you want to delete category ID: ${id}?`)) {
-	            await fetch(contextPath + "/admin?id=" + encodeURIComponent(id),{method: "DELETE"}).then(()=>window.location.reload())
+	    async function handleDeleteProduct(id) {
+	        if (confirm(`Are you sure you want to delete product ID: ${id}?`)) {
+	            await fetch(contextPath + "/admin/product?id=" + encodeURIComponent(id),{method: "DELETE"}).then(()=>window.location.reload())
 	        }
 	    }
 
