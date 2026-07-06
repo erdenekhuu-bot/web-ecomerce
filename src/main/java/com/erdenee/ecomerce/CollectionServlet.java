@@ -29,14 +29,7 @@ public class CollectionServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		 List<String> collections = List.of(
-			        "Men",
-			        "Women",
-			        "Shoes",
-			        "Accessories"
-			    );
-		request.setAttribute("message", "Hello World");
-		request.setAttribute("collections", collections);
+		request.setAttribute("collection", true);
 		request.getRequestDispatcher("/WEB-INF/views/collection.jsp").forward(request, response);
 	}
 

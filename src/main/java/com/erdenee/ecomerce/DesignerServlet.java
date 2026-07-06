@@ -27,6 +27,7 @@ public class DesignerServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		request.setAttribute("designer", true);
 		request.getRequestDispatcher("/WEB-INF/views/designer.jsp").forward(request, response);
 	}
 
