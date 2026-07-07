@@ -15,7 +15,6 @@
 		    <nav class="space-x-12 py-3 hidden lg:block">
 		    	<a href="${pageContext.request.contextPath}/new-arrival" class="uppercase text-2xl ${newarrival ? 'underline' : ''} font-medium">New arrivals</a>
 		    	<a href="${pageContext.request.contextPath}/collection" class="uppercase text-2xl ${collection ? 'underline' : ''} font-medium">Collections</a>
-		    	<a href="${pageContext.request.contextPath}/designer" class="uppercase text-2xl ${designer ? 'underline' : ''} font-medium">Designers</a>
 		    	<a href="${pageContext.request.contextPath}/journal" class="uppercase text-2xl ${journal ? 'underline' : ''} font-medium">Journal</a>
 		    </nav>
 		    <section class="flex gap-4">
