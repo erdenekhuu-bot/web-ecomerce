@@ -57,7 +57,34 @@ public class AdminPayment extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		Payment payment=new Payment();
+		PaymentService service=new PaymentService();
+		payment.setName(request.getParameter("name"));
+
+		service.create(payment);
+		response.setStatus(HttpServletResponse.SC_CREATED);
+		response.sendRedirect(request.getContextPath() + "/admin/payment");
+	}
+	
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String idParam = request.getParameter("id");
+		if (idParam == null || idParam.isBlank()) {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST,"Payment id is required");
+            return;
+        }
+		try {
+            int id = Integer.parseInt(idParam);
+            PaymentService service = new PaymentService();
+            boolean deleted = service.delete(id);
+            if (!deleted) {
+                response.sendError(HttpServletResponse.SC_NOT_FOUND,"Payment not found");
+                return;
+            }
+            response.setStatus(HttpServletResponse.SC_OK);
+        } catch (Exception e) {
+            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR,e.toString());
+        }
 	}
 
 }

@@ -8,26 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.List;
-
-import com.erdenee.ecomerce.config.DatabaseConnection;
-import com.erdenee.ecomerce.dao.*;
-import com.erdenee.ecomerce.service.*;
-
 /**
- * Servlet implementation class HomeServlet
+ * Servlet implementation class LogOut
  */
-@WebServlet("/home" )
-public class HomeServlet extends HttpServlet {
+@WebServlet("/logout")
+public class LogOut extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomeServlet() {
+    public LogOut() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,15 +26,13 @@ public class HomeServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession session=request.getSession();
-		
-		
-		String username = (String) session.getAttribute("username");
-		request.setAttribute("name",username);
-		request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
+		HttpSession session=request.getSession(false);
+		if(session != null) {
+			session.invalidate();
+		}
+		response.sendRedirect(request.getContextPath()+"/login");
 	}
 
 	/**
