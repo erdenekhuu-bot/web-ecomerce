@@ -70,6 +70,7 @@
     
    
 	 <script>
+	 	  console.log("${name}")
 		  document.addEventListener("DOMContentLoaded", function() {
 		    const swiper = new Swiper('.swiper', {
 		      slidesPerView: 2, 

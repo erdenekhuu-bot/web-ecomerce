@@ -26,12 +26,12 @@ public class PaymentService {
 	    
 	    try (Connection conn = DatabaseConnection.getConnection();
 	    	 PreparedStatement ps = conn.prepareStatement(sql)) {
-	    	ps.setInt(1, pageSize);
-            ps.setInt(2, offset);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
+	    	 ps.setInt(1, pageSize);
+             ps.setInt(2, offset);
+             ResultSet rs = ps.executeQuery();
+             while (rs.next()) {
             	payments.add(mapPayment(rs));
-            }
+             }
 	    	
 	    } catch(SQLException e) {
 	    	e.printStackTrace();
@@ -58,8 +58,22 @@ public class PaymentService {
 		return null;
 	} 
 	
-	public boolean delete() {
-		return false;
+	public boolean delete(int id) {
+		 String sql = """
+			        DELETE FROM public.payment
+			        WHERE id = ?
+			        """;
+
+		 try (Connection conn = DatabaseConnection.getConnection();
+			  PreparedStatement ps = conn.prepareStatement(sql)) {
+			  ps.setInt(1, id);
+			  return ps.executeUpdate() > 0;
+
+	     } catch (SQLException e) {
+	    	 System.err.println(e.toString());
+			 e.printStackTrace();
+			 return false;
+	     }
 	}
 	
 	public int count() {

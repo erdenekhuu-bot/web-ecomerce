@@ -36,30 +36,34 @@ public class AdminCategory extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int page = 1;
-	    int size = 10;
+		try {
+			int page = 1;
+		    int size = 10;
 
-	    String pageParam = request.getParameter("page");
+		    String pageParam = request.getParameter("page");
 
-	    if (pageParam != null) {
-	        try {
-	            page = Integer.parseInt(pageParam);
-	        } catch (NumberFormatException e) {
-	            page = 1;
+		    if (pageParam != null) {
+		    	page = Integer.parseInt(pageParam);
+		           
+		    } else {
+		    	 page = 1;
 	        }
-	    }
+		    
+		    List<Category> categories = categoryService.findMany(page, size);
 
-	    List<Category> categories = categoryService.findMany(page, size);
+		    int totalRecords = categoryService.count();
+		    int totalPages = (int) Math.ceil((double) totalRecords / size);
 
-	    int totalRecords = categoryService.count();
-	    int totalPages = (int) Math.ceil((double) totalRecords / size);
-
-	    request.setAttribute("categories", categories);
-	    request.setAttribute("currentPage", page);
-	    request.setAttribute("totalPages", totalPages);
-		request.setAttribute("category", true);
-		
-		request.getRequestDispatcher("/WEB-INF/views/admin/Category.jsp").forward(request, response);
+		    request.setAttribute("categories", categories);
+		    request.setAttribute("currentPage", page);
+		    request.setAttribute("totalPages", totalPages);
+			request.setAttribute("category", true);
+			
+			request.getRequestDispatcher("/WEB-INF/views/admin/Category.jsp").forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Дата уншихад алдаа гарлаа.");
+		}
 	}
 
 	/**
