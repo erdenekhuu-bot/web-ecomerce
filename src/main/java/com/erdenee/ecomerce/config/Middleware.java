@@ -47,9 +47,7 @@ public class Middleware extends HttpFilter implements Filter {
 
 	    HttpSession session = req.getSession(false);
 
-	    boolean loggedIn =
-	            session != null &&
-	            session.getAttribute("username") != null;
+	    boolean loggedIn = session != null && session.getAttribute("username") != null;
 
 	    boolean publicPath =
 	            path.equals("/") ||

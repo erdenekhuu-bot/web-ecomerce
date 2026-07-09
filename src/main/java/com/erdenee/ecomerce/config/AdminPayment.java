@@ -43,6 +43,7 @@ public class AdminPayment extends HttpServlet {
 	        }
 	    }
 	    List<Payment> payments=service.findMany(page, size);
+
 	    int totalRecords = service.count();
 	    int totalPages = (int) Math.ceil((double) totalRecords / size);
 		request.setAttribute("payment", true);
