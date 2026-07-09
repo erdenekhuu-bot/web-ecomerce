@@ -7,7 +7,7 @@
     <section class="p-6">
     <div class="flex items-center justify-between pb-4">
 	            <h1 class="text-2xl font-bold text-gray-900 tracking-tight">Product Management</h1>
-	        </div>
+	 </div>
 	        <div class="flex items-center justify-between gap-4 bg-white p-4 rounded-xl border border-gray-200 shadow-sm mb-6">
 			    <div class="relative flex-1 max-w-md">
 			        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
