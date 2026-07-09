@@ -40,7 +40,6 @@ public class HomeServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession session=request.getSession();
 		
-		
 		String username = (String) session.getAttribute("username");
 		request.setAttribute("name",username);
 		request.getRequestDispatcher("/WEB-INF/views/home.jsp").forward(request, response);
