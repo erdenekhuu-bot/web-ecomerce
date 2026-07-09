@@ -3,10 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <ui:admin-layout title="User page">
-
-    <h1 class="text-3xl font-bold">
-        User
-    </h1>
-    
+    <section class="p-6">
+	     <div class="flex items-center justify-between pb-4">
+		       <h1 class="text-2xl font-bold text-gray-900 tracking-tight">User Management</h1>
+		 </div>
+    </section>
     
 </ui:admin-layout>
